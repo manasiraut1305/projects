@@ -1,0 +1,21 @@
+{
+  "name": "ecommerce-shoes",
+  "version": "1.0.0",
+  "description": "A simple e-commerce website for shoes",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "canvas": "^2.11.2",
+    "express": "^4.19.2",
+    "mongodb": "^6.8.0",
+    "mongoose": "^7.8.1",
+    "nodemon": "^3.1.4",
+    "sentiment": "^5.0.2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

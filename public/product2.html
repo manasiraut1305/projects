@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product 2- Ecomm Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <h1>Ecomm Website</h1>
+        </div>
+        <ul class="nav-right">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Cart</a></li>
+        </ul>
+    </nav>
+
+    <div class="product-page">
+        <img src="nike5.jpg" alt="Shoe 1">
+        <div class="product-details">
+            <h2 id ="2">Product 2</h2>
+            <p>Price: $100</p>
+            <p>Description: This is a high-quality shoe with excellent durability and comfort. Perfect for all-day wear.</p>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <form id = "commentForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name">
+    
+        <label for="comment">Comment:</label>
+        <textarea id="comment" name="comment" rows="5" placeholder="Enter your comment"></textarea>
+    
+        <button class="submit-button" type="submit" id = "submit">Submit</button>
+        </form>
+    </div>
+    <h2>Response:</h2>
+    <p id="responseMessage"></p>
+    <img id="responseImage" src="" alt="image in here" style="display:none; width: 200px;">
+
+    <script>
+        document.getElementById('commentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                comment: document.getElementById('comment').value,
+                prod: document.getElementById('prod').value
+            };
+
+            fetch('/submit-comment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Display the response message
+                document.getElementById('responseMessage').textContent = data.message;
+                
+                // Display the corresponding image
+                const imgElement = document.getElementById('responseImage');
+                imgElement.src = data.image;
+                imgElement.style.display = 'block';
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+    
+    <footer>
+        <p>Follow us on <a href="#">Twitter</a> <a href="#">Instagram</a> <a href="#">Facebook</a></p>
+    </footer><script src = "product2.js" ></script>
+</body>
+</html>

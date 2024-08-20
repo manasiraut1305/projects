@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel = "stylesheet" href = "login.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action = "" method = "post">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <a href ="/views/index.html" onclick="validateLogin()">Login</a>
+        </form>
+    </div>
+
+    <script>
+        function validateLogin() {
+            var username = document.getElementById("username").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            // Replace with your actual validation logic
+            //if(username === "admin" && email === "admin@example.com" && password === "password123") {
+              //  alert("Login successful!");
+                // Redirect to another page or perform further actions
+            //} else {
+              //  alert("Invalid username, email, or password. Please try again.");
+            //}
+        }
+    </script>
+
+</body>
+</html>
